@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -29,11 +29,16 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">JamesZacka_GoDataFeed_Coding_Demo</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+              <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-area="" asp-controller="Products" asp-action="Index">Products</a></li>
+              </ul>
+              <!-- Button trigger modal -->
+              @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Launch demo modal
+              </button>*@
             </div>
         </div>
     </nav>
@@ -41,32 +46,65 @@
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - JamesZacka_GoDataFeed_Coding_Demo</p>
-        </footer>
+      @RenderBody()
+      @Html.AntiForgeryToken()
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Change User</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <footer>
+        <p>&copy; 2019 - JamesZacka_GoDataFeed_Coding_Demo</p>
+      </footer>
     </div>
 
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+      <script src="~/lib/jquery/dist/jquery.js"></script>
+      <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="~/js/site.js" asp-append-version="true"></script>
+
+      <script src="~/dist/Angular/runtime.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/polyfills.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/styles.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/vendor.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/main.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+      <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+              asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+              asp-fallback-test="window.jQuery"
+              crossorigin="anonymous"
+              integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+      </script>
+      <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+              asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+              asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+              crossorigin="anonymous"
+              integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+      </script>
+      <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+      <script src="~/dist/Angular/runtime.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/polyfills.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/styles.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/vendor.js" asp-append-version="true"></script>
+      <script src="~/dist/Angular/main.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
