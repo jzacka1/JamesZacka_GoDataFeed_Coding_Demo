@@ -19,15 +19,21 @@ namespace APIControllerTest
 		private ProductsAPIController _productsAPIController;
 		private ProductsController _productsController;
 
+		private readonly DbContextOptions<Model1> _options;
+
 		public APIControllerTest()
 		{
+			//Each call to the constructor must change the database name to unique names
+			_options = new DbContextOptionsBuilder<Model1>()
+				.UseInMemoryDatabase("ShoppingDB" + Guid.NewGuid().ToString())
+				.Options;
+
 			this.InitContext();
 		}
 
 		private void InitContext()
 		{
-			var options = new DbContextOptionsBuilder<Model1>().UseInMemoryDatabase().Options;
-			var _context = new Model1(options);
+			var _context = new Model1(_options);
 
 			//Add Products
 			_context.Products.Add(new Products { ID = 1, Name = "Fighter Jet", Manufacturer = "Lockheed Martin", Price = 350000000 });
@@ -75,7 +81,7 @@ namespace APIControllerTest
 		public async Task Products_Index_IsNotNullAsync()
 		{
 
-			//Arrang and Act
+			//Act
 			var productIndex = await _productsController.Index();
 
 			//Assert

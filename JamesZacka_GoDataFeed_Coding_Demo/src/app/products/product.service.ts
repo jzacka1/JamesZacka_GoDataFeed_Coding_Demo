@@ -7,6 +7,7 @@ import { Product } from '../product';
 @Injectable({
   providedIn: 'root'
 })
+//@Injectable()
 export class ProductService {
 
   productsUrl = "api/ProductsAPI";
