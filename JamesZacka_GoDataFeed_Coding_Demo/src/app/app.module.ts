@@ -8,6 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductService } from './products/product.service';
+import { RouterModule } from '@angular/router';
+
+//IN ORDER FOR ANGULAR TO WORK, THE LAYOUT PAGE MUS HAVE THE FOLLOWING HTML TAG BELOW:
+// <base href="/">
+//OTHERWISE IT'LL GIVE AN ERROR ABOUT NOT PROVIDING BASE HREF.
+//PLEASE LOOK AT THE LAYOUT PAGE INSIDE THE HEADER TAG
+//https://www.youtube.com/watch?v=Std1QJpMEiE
+
+//AFTER YOU BUILD THE ANGULAR APPLICATION, MOVE THE DIST FOLDER CONTAINING THE JS FILES TO THE WWWWROOT FOLDER
 
 @NgModule({
   declarations: [
@@ -18,9 +27,10 @@ import { ProductService } from './products/product.service';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
     AppRoutingModule
   ],
-  providers: [ProductService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
