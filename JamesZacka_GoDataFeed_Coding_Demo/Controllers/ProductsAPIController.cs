@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,6 +44,27 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
             }
 
             return Ok(products);
+        }
+
+        // Call the method in the url by calling the method before the value of the name
+        // GET: api/ProductsAPI/Sedan
+        [Route("[action]/{name}")]
+        [HttpGet]
+        public async Task<IActionResult> GetProductsByName([FromRoute] string name)
+        {
+          if (!ModelState.IsValid)
+          {
+            return BadRequest(ModelState);
+          }
+
+          var products = await _context.Products.Where(x => x.Name.Contains(name)).ToListAsync();
+
+          if (products == null)
+          {
+            return NotFound();
+          }
+
+          return Ok(products);
         }
 
         // PUT: api/ProductsAPI/5

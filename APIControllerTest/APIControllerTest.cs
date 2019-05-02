@@ -88,5 +88,18 @@ namespace APIControllerTest
 			Assert.NotNull(productIndex);
 		}
 
+		[Fact]
+		public async Task ProductsAPI_GetProductsByName(){
+			//Act
+			string name = "Sedan";
+
+			//Assert
+			var products = await _productsAPIController.GetProductsByName(name);
+
+			//Assert
+			var test = "fdsa";
+			//Assert.Equals(name, products.Value[0].Name);
+		}
+
 	}
 }

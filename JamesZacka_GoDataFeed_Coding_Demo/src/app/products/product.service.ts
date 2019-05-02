@@ -21,6 +21,23 @@ export class ProductService {
       );
   }
 
+  getProductsByName(event: any): Observable<Product[]> {
+    var name = event.target.value;
+
+    if (name == "") {
+      return this.getProducts();
+    }
+
+    return this.http.get<Product[]>(this.productsUrl + "/GetProductsByName/" + name)
+      .pipe(
+        catchError(this.handleError<Product[]>('getProductsByName'))
+      );
+    //return this.http.get<Product[]>(this.productsUrl + "/" + name)
+    //  .pipe(
+    //    catchError(this.handleError<Product[]>('getProductsByName'))
+    //  );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

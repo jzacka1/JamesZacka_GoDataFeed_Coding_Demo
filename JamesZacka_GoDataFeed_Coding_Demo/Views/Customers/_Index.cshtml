@@ -1,0 +1,46 @@
+@model IEnumerable<JamesZacka_GoDataFeed_Coding_Demo.Models.Customers>
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="modal-title">Customer List</h4>
+</div>
+<div class="modal-body">
+  <div class="form-horizontal">
+    <p>
+      <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            @Html.DisplayNameFor(model => model.Name)
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var item in Model)
+        {
+          <tr>
+            <td>
+              @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @*<td>
+              <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+              <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+              <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>*@
+          </tr>
+        }
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+  <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+</div>
+

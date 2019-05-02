@@ -42,6 +42,25 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
             return View(products);
         }
 
+        // GET: Products/_Details/5
+        // Opens a partial view version of the Deatils page
+        public async Task<IActionResult> _Details(int? id)
+        {
+          if (id == null)
+          {
+            return NotFound();
+          }
+
+          var products = await _context.Products
+              .FirstOrDefaultAsync(m => m.ID == id);
+          if (products == null)
+          {
+            return NotFound();
+          }
+
+          return PartialView(products);
+        }
+
         // GET: Products/Create
         public IActionResult Create()
         {
@@ -78,6 +97,23 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
                 return NotFound();
             }
             return View(products);
+        }
+
+      // GET: Products/Edit/5
+      // Opens a partial view version of the Edit page
+      public async Task<IActionResult> _Edit(int? id)
+        {
+          if (id == null)
+          {
+            return NotFound();
+          }
+
+          var products = await _context.Products.FindAsync(id);
+          if (products == null)
+          {
+            return NotFound();
+          }
+          return PartialView(products);
         }
 
         // POST: Products/Edit/5
@@ -131,6 +167,25 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
             }
 
             return View(products);
+        }
+
+        // GET: Products/Delete/5
+        // Opens a partial view version of the Delete page
+        public async Task<IActionResult> _Delete(int? id)
+        {
+          if (id == null)
+          {
+            return NotFound();
+          }
+
+          var products = await _context.Products
+              .FirstOrDefaultAsync(m => m.ID == id);
+          if (products == null)
+          {
+            return NotFound();
+          }
+
+          return PartialView(products);
         }
 
         // POST: Products/Delete/5

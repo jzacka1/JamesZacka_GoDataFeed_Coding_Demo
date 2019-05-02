@@ -1,0 +1,35 @@
+@model JamesZacka_GoDataFeed_Coding_Demo.Models.Customers
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true"></span>
+  </button>
+  <h4 class="modal-title"></h4>
+</div>
+<div class="modal-body">
+  <div class="form-horizontal">
+    <div>
+      <h4>Customers</h4>
+      <hr />
+      <dl class="dl-horizontal">
+        <dt>
+          @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+          @Html.DisplayFor(model => model.Name)
+        </dd>
+      </dl>
+    </div>
+    <div>
+      @*<a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>*@
+      <a asp-action="_Details" asp-controller="Customers" asp-route-id="@Model.ID" data-toggle="modal" data-target="#exampleModalCenter">
+        Details
+      </a>|
+      <a asp-action="Index">Back to List</a>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+  <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+</div>

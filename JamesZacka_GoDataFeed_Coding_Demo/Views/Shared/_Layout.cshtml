@@ -35,10 +35,24 @@
                 <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 <li><a asp-area="" asp-controller="Products" asp-action="Index">Products</a></li>
               </ul>
+
+              @*https://amlblog.net/programming/2016/04/25/bootstrap-modals-and-razor.html*@
               <!-- Button trigger modal -->
               @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Launch demo modal
+                    Launch demo modal
               </button>*@
+              @*<a class="btn btn-primary" asp-action="_Index" asp-controller="Customers" data-toggle="modal" data-target="#exampleModalCenter">
+                Customer Index
+              </a>*@
+              @*<a class="btn btn-primary" asp-action="_Details" asp-controller="Customers" asp-route-id="1" data-toggle="modal" data-target="#exampleModalCenter">
+                Customer Detail 1
+              </a>*@
+              @*<a class="btn btn-primary" asp-action="GetProducts" asp-controller="ProductsAPI" data-toggle="modal" data-target="#exampleModalCenter">
+                  Products
+              </a>*@
+              @*<a class="btn btn-primary" asp-action="_UserModalBtn" asp-controller="Customers" data-toggle="modal" data-target="#exampleModalCenter">
+                Partial
+              </a>*@
             </div>
         </div>
     </nav>
@@ -46,13 +60,14 @@
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
+
       @RenderBody()
       @Html.AntiForgeryToken()
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+            @*<div class="modal-header">
               <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -63,8 +78,8 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Change User</button>
-            </div>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Change User</button>
+            </div>*@
           </div>
         </div>
       </div>
@@ -84,6 +99,17 @@
       <script src="~/dist/Angular/styles.js" asp-append-version="true"></script>
       <script src="~/dist/Angular/vendor.js" asp-append-version="true"></script>
       <script src="~/dist/Angular/main.js" asp-append-version="true"></script>
+      <script>
+        $(function () {
+          // when the modal is closed
+          $('#exampleModalCenter').on('hidden.bs.modal', function () {
+            // remove the bs.modal data attribute from it
+            $(this).removeData('bs.modal');
+            // and empty the modal-content element
+            $('#exampleModalCenter .modal-content').empty();
+          });
+        });
+      </script>
     </environment>
     <environment exclude="Development">
       <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"

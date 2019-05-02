@@ -4,6 +4,17 @@
 
 <h1>This is it!</h1>
 
+<!--<input type="text" [formControl]="myName" />
+<p>
+  Value: {{myName.value}}
+</p>-->
+
+<input [(ngModel)]="name" #ctrl="ngModel" required />
+
+<p>Value: {{ name }}</p>
+<p>Valid: {{ ctrl.valid }}</p>
+
+<input (keyup)="getProductsByName($event)" required />
 <ul class="products">
   <li *ngFor="let product of products">
     {{product.name}}

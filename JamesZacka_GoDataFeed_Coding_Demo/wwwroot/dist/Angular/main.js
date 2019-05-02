@@ -156,6 +156,8 @@ __webpack_require__.r(__webpack_exports__);
 //PLEASE LOOK AT THE LAYOUT PAGE INSIDE THE HEADER TAG
 //https://www.youtube.com/watch?v=Std1QJpMEiE
 //AFTER YOU BUILD THE ANGULAR APPLICATION, MOVE THE DIST FOLDER CONTAINING THE JS FILES TO THE WWWWROOT FOLDER
+//IN ORDER FOR THE CHANGES TO BE REFLECTED IN THE WEB BROWSER, MAKE SURE TO CLEAN AND REBUILD THE COMPILER, CLEAR BROWSING DATA IN YOUR WEB BROWSER
+//AND THEN CLEAR ALL BREAKPOINTS IN THE WEB BROWSER
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -212,6 +214,18 @@ var ProductService = /** @class */ (function () {
         return this.http.get(this.productsUrl)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getProducts')));
     };
+    ProductService.prototype.getProductsByName = function (event) {
+        var name = event.target.value;
+        if (name == "") {
+            return this.getProducts();
+        }
+        return this.http.get(this.productsUrl + "/GetProductsByName/" + name)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getProductsByName')));
+        //return this.http.get<Product[]>(this.productsUrl + "/" + name)
+        //  .pipe(
+        //    catchError(this.handleError<Product[]>('getProductsByName'))
+        //  );
+    };
     ProductService.prototype.handleError = function (operation, result) {
         if (operation === void 0) { operation = 'operation'; }
         return function (error) {
@@ -256,7 +270,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  products works!\r\n</p>\r\n\r\n<h1>This is it!</h1>\r\n\r\n<ul class=\"products\">\r\n  <li *ngFor=\"let product of products\">\r\n    {{product.name}}\r\n  </li>\r\n</ul>\r\n"
+module.exports = "<p>\r\n  products works!\r\n</p>\r\n\r\n<h1>This is it!</h1>\r\n\r\n<!--<input type=\"text\" [formControl]=\"myName\" />\r\n<p>\r\n  Value: {{myName.value}}\r\n</p>-->\r\n\r\n<input [(ngModel)]=\"name\" #ctrl=\"ngModel\" required />\r\n\r\n<p>Value: {{ name }}</p>\r\n<p>Valid: {{ ctrl.valid }}</p>\r\n\r\n<input (keyup)=\"getProductsByName($event)\" required />\r\n<ul class=\"products\">\r\n  <li *ngFor=\"let product of products\">\r\n    {{product.name}}\r\n  </li>\r\n</ul>\r\n"
 
 /***/ }),
 
@@ -286,6 +300,11 @@ var ProductsComponent = /** @class */ (function () {
     ProductsComponent.prototype.getProducts = function () {
         var _this = this;
         this.productService.getProducts()
+            .subscribe(function (products) { return _this.products = products; });
+    };
+    ProductsComponent.prototype.getProductsByName = function (name) {
+        var _this = this;
+        this.productService.getProductsByName(name)
             .subscribe(function (products) { return _this.products = products; });
     };
     ProductsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

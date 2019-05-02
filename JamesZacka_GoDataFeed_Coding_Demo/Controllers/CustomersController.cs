@@ -21,7 +21,13 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return PartialView(await _context.Customers.ToListAsync());
+        }
+
+        // GET: Customers
+        public async Task<IActionResult> _Index()
+        {
+          return PartialView(await _context.Customers.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -42,8 +48,26 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
             return View(customers);
         }
 
-        // GET: Customers/Create
-        public IActionResult Create()
+        // GET: Customers/Details/5
+        public async Task<IActionResult> _Details(int? id)
+        {
+          if (id == null)
+          {
+            return NotFound();
+          }
+
+          var customers = await _context.Customers
+              .FirstOrDefaultAsync(m => m.ID == id);
+          if (customers == null)
+          {
+            return NotFound();
+          }
+
+          return PartialView(customers);
+        }
+
+    // GET: Customers/Create
+    public IActionResult Create()
         {
             return View();
         }

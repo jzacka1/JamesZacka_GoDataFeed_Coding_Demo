@@ -42,9 +42,18 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+              @*<a asp-action="Edit" asp-route-id="@item.ID">Edit</a>*@
+              <a asp-action="_Edit" asp-route-id="@item.ID" data-toggle="modal" data-target="#exampleModalCenter">
+                Edit
+              </a>|
+              @*<a asp-action="Details" asp-route-id="@item.ID">Details</a>*@
+              <a asp-action="_Details" asp-controller="Products" asp-route-id="@item.ID" data-toggle="modal" data-target="#exampleModalCenter">
+                Details
+              </a>|
+              @*<a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
+              <a asp-action="_Delete" asp-controller="Products" asp-route-id="@item.ID" data-toggle="modal" data-target="#exampleModalCenter">
+                Delete
+              </a>
             </td>
         </tr>
 }
