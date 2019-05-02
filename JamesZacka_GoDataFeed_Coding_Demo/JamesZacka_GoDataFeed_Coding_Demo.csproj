@@ -80,6 +80,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WcfServiceLibrary1\WcfServiceLibrary1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="src\app\product.ts" />
   </ItemGroup>
 

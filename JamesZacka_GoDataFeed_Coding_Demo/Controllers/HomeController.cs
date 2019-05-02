@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using JamesZacka_GoDataFeed_Coding_Demo.Models;
+using WcfServiceLibrary1;
 
 namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
 {
@@ -12,6 +13,8 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
     {
         public IActionResult Index()
         {
+            Service1 client = new Service1();
+            string data = client.GetData(378);
             return View();
         }
 

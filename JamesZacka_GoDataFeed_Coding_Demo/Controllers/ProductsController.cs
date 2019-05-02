@@ -24,6 +24,12 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Controllers
             return View(await _context.Products.ToListAsync());
         }
 
+        // GET: Products
+        public async Task<IActionResult> IndexProductsAPI()
+        {
+          return View();
+        }
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {

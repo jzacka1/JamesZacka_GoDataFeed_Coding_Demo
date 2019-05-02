@@ -10,6 +10,7 @@ using JamesZacka_GoDataFeed_Coding_Demo.Controllers;
 using JamesZacka_GoDataFeed_Coding_Demo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WcfServiceLibrary1;
 using Xunit;
 
 namespace APIControllerTest
@@ -93,12 +94,24 @@ namespace APIControllerTest
 			//Act
 			string name = "Sedan";
 
-			//Assert
+			//Arrange
 			var products = await _productsAPIController.GetProductsByName(name);
 
 			//Assert
 			var test = "fdsa";
 			//Assert.Equals(name, products.Value[0].Name);
+		}
+
+		[Fact]
+		public async Task WcfService_GetData(){
+			//Arrange
+			Service1 client = new Service1();
+
+			//Act
+			string data = client.GetData(378);
+
+			//Assert
+			Assert.Equal("You entered: 378", data);
 		}
 
 	}
