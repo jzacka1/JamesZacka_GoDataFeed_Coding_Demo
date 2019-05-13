@@ -21,7 +21,7 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Models
         [StringLength(36)]
         public string Salt { get; set; }
 
-        public ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
 
         //public virtual ShoppingCarts ShoppingCart { get; set; }
     }

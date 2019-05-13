@@ -103,7 +103,8 @@ namespace APIControllerTest
 		}
 
 		[Fact]
-		public async Task WcfService_GetData(){
+		public async Task WcfService_GetData()
+		{
 			//Arrange
 			Service1 client = new Service1();
 

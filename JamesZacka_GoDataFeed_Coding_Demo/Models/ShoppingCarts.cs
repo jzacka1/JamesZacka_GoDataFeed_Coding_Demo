@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -28,6 +28,6 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Models
         [Required]
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
-        public Customers Customer { get; set; }
+        public virtual Customers Customer { get; set; }
     }
 }

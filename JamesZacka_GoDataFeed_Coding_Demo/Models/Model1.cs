@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,5 +18,14 @@ namespace JamesZacka_GoDataFeed_Coding_Demo.Models
         public DbSet<Products> Products { get; set; }
         public DbSet<ShoppingCarts> ShoppingCarts { get; set; }
         public DbSet<CartItems> CartItems { get; set; }
-    }
+
+        protected override void OnConfiguring(
+               DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder
+            //  .UseLazyLoadingProxies();
+              //.UseSqlServer(
+              //        Configuration.GetConnectionString(" ... connection string name ... "));
+        }
+  }
 }

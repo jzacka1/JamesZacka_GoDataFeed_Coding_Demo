@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
 	  <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
@@ -27,6 +27,8 @@
     <Compile Remove="Migrations\20190410032807_modifiedCartItems.Designer.cs" />
     <Compile Remove="Migrations\20190410033118_modifiedCartItems.cs" />
     <Compile Remove="Migrations\20190410033118_modifiedCartItems.Designer.cs" />
+    <Compile Remove="Migrations\20190513212154_LazyLoadingToModels.cs" />
+    <Compile Remove="Migrations\20190513212154_LazyLoadingToModels.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -75,6 +77,7 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="RestSharp" Version="106.6.9" />
   </ItemGroup>

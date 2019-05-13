@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JamesZacka_GoDataFeed_Codin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIControllerTest", "APIControllerTest\APIControllerTest.csproj", "{0DEFD4CD-8CE9-40DA-9FDD-B4C9B3D9604B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary1", "WcfServiceLibrary1\WcfServiceLibrary1.csproj", "{C2AE5C49-1EFB-4E2C-942E-CB7DC82CD0F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary1", "WcfServiceLibrary1\WcfServiceLibrary1.csproj", "{A002CFA5-9DDE-4A53-A430-EB304C06CD84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{0DEFD4CD-8CE9-40DA-9FDD-B4C9B3D9604B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DEFD4CD-8CE9-40DA-9FDD-B4C9B3D9604B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DEFD4CD-8CE9-40DA-9FDD-B4C9B3D9604B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2AE5C49-1EFB-4E2C-942E-CB7DC82CD0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2AE5C49-1EFB-4E2C-942E-CB7DC82CD0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2AE5C49-1EFB-4E2C-942E-CB7DC82CD0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2AE5C49-1EFB-4E2C-942E-CB7DC82CD0F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A002CFA5-9DDE-4A53-A430-EB304C06CD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A002CFA5-9DDE-4A53-A430-EB304C06CD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A002CFA5-9DDE-4A53-A430-EB304C06CD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A002CFA5-9DDE-4A53-A430-EB304C06CD84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,7 +40,9 @@ namespace JamesZacka_GoDataFeed_Coding_Demo
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<Model1>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ShoppingDatabase")));
+                options
+                .UseLazyLoadingProxies()
+                .UseSqlServer(Configuration.GetConnectionString("ShoppingDatabase")));
 
             services.AddSingleton<IProductService, ProductService>();
 
